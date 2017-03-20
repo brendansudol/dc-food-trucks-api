@@ -132,3 +132,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+# Third-party keys
+
+TW_CONSUMER_KEY = os.environ.get('TW_CONSUMER_KEY')
+TW_CONSUMER_SECRET = os.environ.get('TW_CONSUMER_SECRET')
+TW_ACCESS_TOKEN_KEY = os.environ.get('TW_ACCESS_TOKEN_KEY')
+TW_ACCESS_TOKEN_SECRET = os.environ.get('TW_ACCESS_TOKEN_SECRET')

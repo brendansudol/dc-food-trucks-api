@@ -2,10 +2,15 @@ appdirs==1.4.3
 dj-database-url==0.4.2
 Django==1.10.6
 django-postgrespool==0.3.1
+future==0.16.0
 gunicorn==19.7.0
+oauthlib==2.0.2
 packaging==16.8
 psycopg2==2.7.1
 pyparsing==2.2.0
+python-twitter==3.2.1
+requests==2.13.0
+requests-oauthlib==0.8.0
 six==1.10.0
 SQLAlchemy==1.1.6
 whitenoise==3.3.0
