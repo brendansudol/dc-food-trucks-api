@@ -1,6 +1,7 @@
 import logging
 
 from django.core.management import BaseCommand
+from time import sleep
 
 from api.models import Truck
 from core.twitter import client
@@ -48,6 +49,7 @@ class Command(BaseCommand):
             return status
 
         logger.info('fetching timeline for {}...'.format(handle))
+        sleep(1)
 
         tweets = self.tw.GetUserTimeline(
             screen_name=handle,

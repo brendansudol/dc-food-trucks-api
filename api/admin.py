@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from api.models import Truck
+
+
+@admin.register(Truck, site=admin.site)
+class TruckAdmin(admin.ModelAdmin):
+    list_display = ('name', 'handle')

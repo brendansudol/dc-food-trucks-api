@@ -20,3 +20,7 @@ class Truck(ModelBase):
 
     def __str__(self):
         return self.name
+
+    def to_dict(self):
+        fields = ['name', 'handle', 'image', 'last_tweet', 'location']
+        return {f: getattr(self, f) for f in fields}
