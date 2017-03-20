@@ -1,1 +1,3 @@
-WIP
+backend for dcfoodtrucks.today
+
+stack: python 3.6, django, postgres; hosted on heroku
