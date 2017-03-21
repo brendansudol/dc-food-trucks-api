@@ -3,6 +3,7 @@ import logging
 import requests
 
 from collections import defaultdict
+from datetime import datetime
 from django.core.management import BaseCommand
 
 from api.models import Truck
@@ -12,7 +13,20 @@ logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--mode',
+            dest='mode',
+            default='adhoc',
+        )
+
     def handle(self, *args, **options):
+        if options['mode'] == 'hourly':
+            hour = datetime.now().hour
+            if hour % 2 != 0:
+                logger.info('skipping! (hour is {})'.format(hour))
+                return
+
         locs = self.fetch_locations()
 
         if not locs:

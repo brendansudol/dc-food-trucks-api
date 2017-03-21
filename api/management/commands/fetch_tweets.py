@@ -1,5 +1,6 @@
 import logging
 
+from datetime import datetime
 from django.core.management import BaseCommand
 from time import sleep
 
@@ -17,7 +18,20 @@ def chunks(l, n):
 class Command(BaseCommand):
     tw = client()
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--mode',
+            dest='mode',
+            default='adhoc',
+        )
+
     def handle(self, *args, **options):
+        if options['mode'] == 'hourly':
+            hour = datetime.now().hour
+            if hour % 2 != 0:
+                logger.info('skipping! (hour is {})'.format(hour))
+                return
+
         trucks = Truck.objects.all()
         truck_chunks = chunks(trucks, 50)
 
