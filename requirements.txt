@@ -3,6 +3,7 @@ appnope==0.1.0
 decorator==4.0.11
 dj-database-url==0.4.2
 Django==1.10.6
+django-cors-headers==2.0.2
 django-postgrespool==0.3.1
 future==0.16.0
 gunicorn==19.7.0

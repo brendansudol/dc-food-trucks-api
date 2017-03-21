@@ -14,10 +14,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
+
     'api',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -140,3 +144,12 @@ TW_CONSUMER_KEY = os.environ.get('TW_CONSUMER_KEY')
 TW_CONSUMER_SECRET = os.environ.get('TW_CONSUMER_SECRET')
 TW_ACCESS_TOKEN_KEY = os.environ.get('TW_ACCESS_TOKEN_KEY')
 TW_ACCESS_TOKEN_SECRET = os.environ.get('TW_ACCESS_TOKEN_SECRET')
+
+
+# CORS settings
+
+CORS_ORIGIN_WHITELIST = (
+    'dcfoodtrucks.today',
+    'brendansudol.com',
+    'localhost:3000',
+)
